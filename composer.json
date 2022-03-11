@@ -1,0 +1,39 @@
+{
+  "name": "ninepay/firestore",
+  "description": "Firestore",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ket Nguyen",
+      "email": "vanket90@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1|^8.0",
+    "guzzlehttp/guzzle": "^7.0",
+    "google/cloud-firestore": "^1.2",
+    "onesite/core": "dev-main"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NinePay\\Firestore\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "files": [
+      "helpers.php"
+    ],
+    "psr-4": {
+      "OneSite\\Firestore\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x.x-dev"
+    }
+  }
+}

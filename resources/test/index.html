@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Firestore</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCT6aQlFcqO3nmTX4uoTbu8yImZjPjmeNg",
+            authDomain: "blog-1689.firebaseapp.com",
+            databaseURL: "https://blog-1689.firebaseio.com",
+            projectId: "blog-1689",
+            storageBucket: "blog-1689.appspot.com",
+            messagingSenderId: "1082838897403",
+            appId: "1:1082838897403:web:a506496949e64ca11fd65e"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore();
+    </script>
+</head>
+<body>
+<script>
+    /*db.collection("cities").doc('ND').set({
+        name: "Nam Dinh"
+    });*/
+
+    /*db.collection("cities").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, doc.data());
+        });
+    });*/
+
+    /*var docRef = db.collection("cities").doc("ND");
+
+    docRef.get().then(function (doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            console.log("No such document!");
+        }
+    }).catch(function (error) {
+        console.log("Error getting document:", error);
+    });*/
+
+    /*db.collection("cities").where("name", "==", 'Ha noi').get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                console.log(doc.id, " => ", doc.data());
+            });
+        }).catch(function (error) {
+            console.log("Error getting documents: ", error);
+        }
+    );*/
+
+    db.collection("cities").doc("HN")
+        .onSnapshot(function (doc) {
+            var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+
+            console.log(source, " data: ", doc.data());
+        });
+</script>
+</body>
+</html>
